@@ -5,6 +5,7 @@
 // at https://console.firebase.google.com → Project settings
 // ═══════════════════════════════════════════════════════════
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -13,12 +14,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey:            "AIzaSyCY1n14G4ScamOjKnTPR9lyQFkq-FnuJsw",
+  authDomain:        "roskilde-c589c.firebaseapp.com",
+  projectId:         "roskilde-c589c",
+  storageBucket:     "roskilde-c589c.firebasestorage.app",
+  messagingSenderId: "783125373441",
+  appId:             "1:783125373441:web:300d0ad1bdd4966a7dd600",
+  measurementId:     "G-67CG8PZXJT"
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -74,9 +76,10 @@ let filteredItems = [];
 // ═══════════════════════════════════════════════════════════
 // INIT FIREBASE
 // ═══════════════════════════════════════════════════════════
-const app      = initializeApp(firebaseConfig);
-const auth     = getAuth(app);
-const provider = new GoogleAuthProvider();
+const app       = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth      = getAuth(app);
+const provider  = new GoogleAuthProvider();
 
 // ── Auth state listener ─────────────────────────────────
 onAuthStateChanged(auth, (user) => {
