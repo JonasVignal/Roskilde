@@ -241,13 +241,17 @@ function renderPage() {
           : `<div class="item-img-placeholder">${item.emoji}</div>`}
       </div>
       <div class="item-info">
-        <div class="item-name">${item.name}</div>
-        <div class="item-price">kr. ${item.price}</div>
+        <div class="item-meta">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">kr. ${item.price}</div>
+        </div>
         <div class="item-controls">
-          <button class="qty-btn" id="minus-${item.id}" aria-label="Decrease quantity" ${qty === 0 ? "disabled" : ""}>−</button>
-          <span class="qty-display" id="qty-${item.id}">${qty}</span>
-          <button class="qty-btn" id="plus-${item.id}" aria-label="Increase quantity" ${qty >= 12 ? "disabled" : ""}>+</button>
-          <button class="btn-add-basket" id="add-${item.id}">Add to basket</button>
+          <div class="qty-stepper">
+            <button class="qty-btn" id="minus-${item.id}" aria-label="Decrease quantity" ${qty === 0 ? "disabled" : ""}>−</button>
+            <span class="qty-display" id="qty-${item.id}">${qty}</span>
+            <button class="qty-btn" id="plus-${item.id}" aria-label="Increase quantity" ${qty >= 12 ? "disabled" : ""}>+</button>
+          </div>
+          <button class="btn-add-basket" id="add-${item.id}">+ Add</button>
         </div>
       </div>
     `;
