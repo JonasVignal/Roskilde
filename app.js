@@ -10,6 +10,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
@@ -104,6 +105,7 @@ const userNameLabel    = document.getElementById("user-name");
 const menuGrid         = document.getElementById("menu-grid");
 const basketBadge      = document.getElementById("basket-badge");
 const basketTotalLabel = document.getElementById("basket-total-label");
+const btnLogout        = document.getElementById("btn-logout");
 const btnBasket        = document.getElementById("btn-basket");
 const basketPanel      = document.getElementById("basket-panel");
 const basketBackdrop   = document.getElementById("basket-backdrop");
@@ -341,6 +343,7 @@ menuGrid.addEventListener("touchend", e => {
 // ═══════════════════════════════════════════════════════════
 // BASKET PANEL
 // ═══════════════════════════════════════════════════════════
+btnLogout.addEventListener("click", () => signOut(auth));
 btnBasket.addEventListener("click", openBasket);
 btnCloseBasket.addEventListener("click", closeBasket);
 basketBackdrop.addEventListener("click", closeBasket);
