@@ -326,16 +326,19 @@ html, body {
 
 /* Logout Button */
 .btn-logout {
-  width: 40px; height: 40px;
-  border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--bg-glass);
   color: var(--text-2);
-  font-size: 18px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 .btn-logout:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
 
