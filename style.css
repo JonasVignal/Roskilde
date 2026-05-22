@@ -445,10 +445,9 @@ html, body {
 }
 
 .item-img-wrap {
-  flex: 1;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  position: relative;
-  min-height: 0;
 }
 .item-img {
   width: 100%; height: 100%;
@@ -465,47 +464,56 @@ html, body {
   background: linear-gradient(135deg, #1e1610, #221a10);
 }
 
-/* Frosted glass info overlay at bottom of card */
+/* Full-card overlay with corner-pinned elements */
 .item-info {
-  padding: 12px 14px 14px;
+  position: absolute;
+  inset: 0;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex-shrink: 0;
-  background: rgba(14,12,11,0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255,255,255,0.07);
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.60) 0%,
+    transparent 38%,
+    transparent 55%,
+    rgba(0,0,0,0.72) 100%
+  );
 }
 
 .item-name {
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-1);
+  color: #fff;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: -0.1px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
 }
 .item-price {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  color: var(--gold);
+  color: var(--gold-light);
   letter-spacing: -0.2px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+  white-space: nowrap;
 }
 
-/* Name + price row */
+/* Name + price row — top of card */
 .item-meta {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 6px;
 }
 
+/* Qty + add row — bottom of card */
 .item-controls {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
 }
 
@@ -546,7 +554,6 @@ html, body {
 }
 
 .btn-add-basket {
-  flex: 1;
   background: var(--gold);
   border: none;
   border-radius: 30px;
