@@ -33,7 +33,7 @@ const firebaseConfig = {
 const EMAILJS_PUBLIC_KEY  = "YOUR_EMAILJS_PUBLIC_KEY";
 const EMAILJS_SERVICE_ID  = "YOUR_EMAILJS_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
-const BAR_EMAIL           = "bar@yourvenue.com"; // ← bar's email address
+const BAR_EMAIL           = "jonasvignal@gmail.com";
 
 // ═══════════════════════════════════════════════════════════
 // MENU DATA
@@ -78,7 +78,7 @@ let filteredItems = [];
 // INIT FIREBASE
 // ═══════════════════════════════════════════════════════════
 const app       = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+getAnalytics(app);
 const auth      = getAuth(app);
 const provider  = new GoogleAuthProvider();
 
@@ -109,6 +109,7 @@ const btnLogout        = document.getElementById("btn-logout");
 const btnBasket        = document.getElementById("btn-basket");
 const basketPanel      = document.getElementById("basket-panel");
 const basketBackdrop   = document.getElementById("basket-backdrop");
+const btnClearBasket   = document.getElementById("btn-clear-basket");
 const btnCloseBasket   = document.getElementById("btn-close-basket");
 const basketItemsEl    = document.getElementById("basket-items");
 const basketTotalPrice = document.getElementById("basket-total-price");
@@ -344,6 +345,12 @@ menuGrid.addEventListener("touchend", e => {
 // BASKET PANEL
 // ═══════════════════════════════════════════════════════════
 btnLogout.addEventListener("click", () => signOut(auth));
+btnClearBasket.addEventListener("click", () => {
+  basket = {};
+  updateBasketHeader();
+  renderBasket();
+  renderPage();
+});
 btnBasket.addEventListener("click", openBasket);
 btnCloseBasket.addEventListener("click", closeBasket);
 basketBackdrop.addEventListener("click", closeBasket);
@@ -434,7 +441,7 @@ btnPlaceOrder.addEventListener("click", async () => {
   const orderText = orderLines.join("\n");
 
   // ── Send email via EmailJS ──────────────────────────────
-  const sent = await sendOrderEmail({
+  await sendOrderEmail({
     customerName: currentUser.displayName || currentUser.email,
     customerEmail: currentUser.email,
     orderDetails: orderText,
