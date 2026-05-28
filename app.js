@@ -15,13 +15,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey:            "AIzaSyCY1n14G4ScamOjKnTPR9lyQFkq-FnuJsw",
-  authDomain:        "roskilde-c589c.firebaseapp.com",
-  projectId:         "roskilde-c589c",
-  storageBucket:     "roskilde-c589c.firebasestorage.app",
+  apiKey: "AIzaSyCY1n14G4ScamOjKnTPR9lyQFkq-FnuJsw",
+  authDomain: "roskilde-c589c.firebaseapp.com",
+  projectId: "roskilde-c589c",
+  storageBucket: "roskilde-c589c.firebasestorage.app",
   messagingSenderId: "783125373441",
-  appId:             "1:783125373441:web:300d0ad1bdd4966a7dd600",
-  measurementId:     "G-67CG8PZXJT"
+  appId: "1:783125373441:web:300d0ad1bdd4966a7dd600",
+  measurementId: "G-67CG8PZXJT"
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -30,37 +30,37 @@ const firebaseConfig = {
 // Sign up free at https://www.emailjs.com
 // Create a service + template then fill in:
 // ═══════════════════════════════════════════════════════════
-const EMAILJS_PUBLIC_KEY  = "YOUR_EMAILJS_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID  = "YOUR_EMAILJS_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
-const BAR_EMAIL           = "jonasvignal@gmail.com";
+const EMAILJS_PUBLIC_KEY = "4eReaYkx73p8Q0F3E";
+const EMAILJS_SERVICE_ID = "service_Roskilde";
+const EMAILJS_TEMPLATE_ID = "template_5m0fxej";
+const BAR_EMAIL = "jonasvignal@gmail.com";
 
 // ═══════════════════════════════════════════════════════════
 // MENU DATA
 // ═══════════════════════════════════════════════════════════
 const MENU = [
   // ── Cocktails ──────────────────────────────────────────
-  { id: 1,  category: "Cocktails",  name: "Negroni",          price: 95,  emoji: "🍊", img: "drink_negroni.png" },
-  { id: 2,  category: "Cocktails",  name: "Mojito",           price: 89,  emoji: "🍃", img: "drink_mojito.png"  },
-  { id: 3,  category: "Cocktails",  name: "Aperol Spritz",    price: 85,  emoji: "🍊", img: "drink_aperol.png"  },
-  { id: 4,  category: "Cocktails",  name: "Margarita",        price: 90,  emoji: "🍋", img: "drink_margarita.png" },
-  { id: 5,  category: "Cocktails",  name: "Espresso Martini", price: 99,  emoji: "☕", img: "drink_espresso_martini.png" },
-  { id: 6,  category: "Cocktails",  name: "Gin & Tonic",      price: 85,  emoji: "🫧", img: "drink_gin_tonic.png" },
+  { id: 1, category: "Cocktails", name: "Negroni", price: 95, emoji: "🍊", img: "drink_negroni.png" },
+  { id: 2, category: "Cocktails", name: "Mojito", price: 89, emoji: "🍃", img: "drink_mojito.png" },
+  { id: 3, category: "Cocktails", name: "Aperol Spritz", price: 85, emoji: "🍊", img: "drink_aperol.png" },
+  { id: 4, category: "Cocktails", name: "Margarita", price: 90, emoji: "🍋", img: "drink_margarita.png" },
+  { id: 5, category: "Cocktails", name: "Espresso Martini", price: 99, emoji: "☕", img: "drink_espresso_martini.png" },
+  { id: 6, category: "Cocktails", name: "Gin & Tonic", price: 85, emoji: "🫧", img: "drink_gin_tonic.png" },
   // ── Spirits & Wine ─────────────────────────────────────
-  { id: 7,  category: "Spirits",    name: "Single Malt Whisky", price: 110, emoji: "🥃", img: "drink_whisky.png" },
-  { id: 8,  category: "Spirits",    name: "Red Wine",          price: 75,  emoji: "🍷", img: "drink_wine.png" },
-  { id: 9,  category: "Spirits",    name: "Prosecco",          price: 72,  emoji: "🥂", img: null },
-  { id: 10, category: "Spirits",    name: "Vodka Soda",        price: 78,  emoji: "🫙", img: null },
+  { id: 7, category: "Spirits", name: "Single Malt Whisky", price: 110, emoji: "🥃", img: "drink_whisky.png" },
+  { id: 8, category: "Spirits", name: "Red Wine", price: 75, emoji: "🍷", img: "drink_wine.png" },
+  { id: 9, category: "Spirits", name: "Prosecco", price: 72, emoji: "🥂", img: null },
+  { id: 10, category: "Spirits", name: "Vodka Soda", price: 78, emoji: "🫙", img: null },
   // ── Beer ───────────────────────────────────────────────
-  { id: 11, category: "Beer",       name: "Craft Beer (pint)", price: 65,  emoji: "🍺", img: "drink_beer.png" },
-  { id: 12, category: "Beer",       name: "IPA (pint)",        price: 70,  emoji: "🍻", img: null },
-  { id: 13, category: "Beer",       name: "Lager (pint)",      price: 60,  emoji: "🍺", img: null },
-  { id: 14, category: "Beer",       name: "Wheat Beer",        price: 65,  emoji: "🍻", img: null },
+  { id: 11, category: "Beer", name: "Craft Beer (pint)", price: 65, emoji: "🍺", img: "drink_beer.png" },
+  { id: 12, category: "Beer", name: "IPA (pint)", price: 70, emoji: "🍻", img: null },
+  { id: 13, category: "Beer", name: "Lager (pint)", price: 60, emoji: "🍺", img: null },
+  { id: 14, category: "Beer", name: "Wheat Beer", price: 65, emoji: "🍻", img: null },
   // ── Soft Drinks ────────────────────────────────────────
-  { id: 15, category: "Soft",       name: "San Pellegrino",    price: 35,  emoji: "💧", img: null },
-  { id: 16, category: "Soft",       name: "Coke / Diet Coke",  price: 30,  emoji: "🥤", img: null },
-  { id: 17, category: "Soft",       name: "Ginger Beer",       price: 38,  emoji: "🫚", img: null },
-  { id: 18, category: "Soft",       name: "Fresh Juice",       price: 42,  emoji: "🍊", img: null },
+  { id: 15, category: "Soft", name: "San Pellegrino", price: 35, emoji: "💧", img: null },
+  { id: 16, category: "Soft", name: "Coke / Diet Coke", price: 30, emoji: "🥤", img: null },
+  { id: 17, category: "Soft", name: "Ginger Beer", price: 38, emoji: "🫚", img: null },
+  { id: 18, category: "Soft", name: "Fresh Juice", price: 42, emoji: "🍊", img: null },
 ];
 
 const ITEMS_PER_PAGE = 12;
@@ -68,19 +68,19 @@ const ITEMS_PER_PAGE = 12;
 // ═══════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════
-let currentUser   = null;
-let basket        = {};      // { itemId: quantity }
-let currentPage   = 0;
-let currentCat    = "All";
+let currentUser = null;
+let basket = {};      // { itemId: quantity }
+let currentPage = 0;
+let currentCat = "All";
 let filteredItems = [];
 
 // ═══════════════════════════════════════════════════════════
 // INIT FIREBASE
 // ═══════════════════════════════════════════════════════════
-const app       = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 getAnalytics(app);
-const auth      = getAuth(app);
-const provider  = new GoogleAuthProvider();
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 // ── Auth state listener ─────────────────────────────────
 onAuthStateChanged(auth, (user) => {
@@ -96,30 +96,30 @@ onAuthStateChanged(auth, (user) => {
 // ═══════════════════════════════════════════════════════════
 // DOM REFS
 // ═══════════════════════════════════════════════════════════
-const loginScreen      = document.getElementById("login-screen");
-const menuScreen       = document.getElementById("menu-screen");
-const btnGoogleSignin  = document.getElementById("btn-google-signin");
-const loginError       = document.getElementById("login-error");
-const userAvatar       = document.getElementById("user-avatar");
-const userNameLabel    = document.getElementById("user-name");
-const menuGrid         = document.getElementById("menu-grid");
-const basketBadge      = document.getElementById("basket-badge");
+const loginScreen = document.getElementById("login-screen");
+const menuScreen = document.getElementById("menu-screen");
+const btnGoogleSignin = document.getElementById("btn-google-signin");
+const loginError = document.getElementById("login-error");
+const userAvatar = document.getElementById("user-avatar");
+const userNameLabel = document.getElementById("user-name");
+const menuGrid = document.getElementById("menu-grid");
+const basketBadge = document.getElementById("basket-badge");
 const basketTotalLabel = document.getElementById("basket-total-label");
-const btnLogout        = document.getElementById("btn-logout");
-const btnBasket        = document.getElementById("btn-basket");
-const basketPanel      = document.getElementById("basket-panel");
-const basketBackdrop   = document.getElementById("basket-backdrop");
-const btnClearBasket   = document.getElementById("btn-clear-basket");
-const btnCloseBasket   = document.getElementById("btn-close-basket");
-const basketItemsEl    = document.getElementById("basket-items");
+const btnLogout = document.getElementById("btn-logout");
+const btnBasket = document.getElementById("btn-basket");
+const basketPanel = document.getElementById("basket-panel");
+const basketBackdrop = document.getElementById("basket-backdrop");
+const btnClearBasket = document.getElementById("btn-clear-basket");
+const btnCloseBasket = document.getElementById("btn-close-basket");
+const basketItemsEl = document.getElementById("basket-items");
 const basketTotalPrice = document.getElementById("basket-total-price");
-const btnPlaceOrder    = document.getElementById("btn-place-order");
-const orderConfirmed   = document.getElementById("order-confirmed");
-const btnOrderDone     = document.getElementById("btn-order-done");
-const categoryTabsEl   = document.getElementById("category-tabs");
-const pageIndicator    = document.getElementById("page-indicator");
-const btnPrev          = document.getElementById("btn-prev");
-const btnNext          = document.getElementById("btn-next");
+const btnPlaceOrder = document.getElementById("btn-place-order");
+const orderConfirmed = document.getElementById("order-confirmed");
+const btnOrderDone = document.getElementById("btn-order-done");
+const categoryTabsEl = document.getElementById("category-tabs");
+const pageIndicator = document.getElementById("page-indicator");
+const btnPrev = document.getElementById("btn-prev");
+const btnNext = document.getElementById("btn-next");
 
 // ═══════════════════════════════════════════════════════════
 // SCREEN TRANSITIONS
@@ -240,8 +240,8 @@ function renderPage() {
     card.innerHTML = `
       <div class="item-img-wrap">
         ${item.img
-          ? `<img class="item-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"item-img-placeholder\\">${item.emoji}</div>'">`
-          : `<div class="item-img-placeholder">${item.emoji}</div>`}
+        ? `<img class="item-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"item-img-placeholder\\">${item.emoji}</div>'">`
+        : `<div class="item-img-placeholder">${item.emoji}</div>`}
       </div>
       <div class="item-info">
         <div class="item-meta">
@@ -478,12 +478,12 @@ async function sendOrderEmail({ customerName, customerEmail, orderDetails, total
 
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email:       BAR_EMAIL,
-      customer_name:  customerName,
+      to_email: BAR_EMAIL,
+      customer_name: customerName,
       customer_email: customerEmail,
-      order_details:  orderDetails,
-      total_price:    totalPrice,
-      order_time:     orderTime,
+      order_details: orderDetails,
+      total_price: totalPrice,
+      order_time: orderTime,
     });
     console.log("✅ Order email sent");
     return true;
