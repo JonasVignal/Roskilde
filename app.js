@@ -13,12 +13,20 @@ import {
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getDatabase,
+  ref as dbRef,
+  push,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCY1n14G4ScamOjKnTPR9lyQFkq-FnuJsw",
   authDomain: "roskilde-c589c.firebaseapp.com",
+  // ⚠️  Add your Realtime Database URL from Firebase Console → Realtime Database
+  databaseURL: "https://roskilde-c589c-default-rtdb.firebaseio.com",
   projectId: "roskilde-c589c",
-  storageBucket: "roskilde-c589c.firebasestorage.app",
+  storageBucket: "https://roskilde-c589c-default-rtdb.europe-west1.firebasedatabase.app/",
   messagingSenderId: "783125373441",
   appId: "1:783125373441:web:300d0ad1bdd4966a7dd600",
   measurementId: "G-67CG8PZXJT"
@@ -80,6 +88,7 @@ let filteredItems = [];
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 const auth = getAuth(app);
+const db = getDatabase(app);
 const provider = new GoogleAuthProvider();
 
 // ── Auth state listener ─────────────────────────────────
@@ -439,6 +448,24 @@ btnPlaceOrder.addEventListener("click", async () => {
   }, 0);
 
   const orderText = orderLines.join("\n");
+
+  // ── Save order to Firebase Realtime Database ───────────
+  const orderItems = Object.entries(basket)
+    .filter(([, qty]) => qty > 0)
+    .map(([idStr, qty]) => {
+      const item = MENU.find(i => i.id === Number(idStr));
+      return { id: item.id, name: item.name, category: item.category, price: item.price, quantity: qty, subtotal: item.price * qty };
+    });
+
+  await push(dbRef(db, "orders"), {
+    customerName: currentUser.displayName || currentUser.email,
+    customerEmail: currentUser.email,
+    userId: currentUser.uid,
+    items: orderItems,
+    total,
+    orderTime: serverTimestamp(),
+    status: "pending",
+  });
 
   // ── Send email via EmailJS ──────────────────────────────
   await sendOrderEmail({
