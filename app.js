@@ -71,7 +71,7 @@ const MENU = [
   { id: 18, category: "Soft", name: "Fresh Juice", price: 42, emoji: "🍊", img: null },
 ];
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 9;
 
 // ═══════════════════════════════════════════════════════════
 // STATE

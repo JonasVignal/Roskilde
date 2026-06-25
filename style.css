@@ -411,11 +411,11 @@ html, body {
   box-shadow: 0 0 8px var(--gold-glow);
 }
 
-/* MENU GRID — 4 columns × 3 rows = 12 per page */
+/* MENU GRID — 3 columns × 3 rows = 9 per page */
 .menu-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 14px;
   overflow: hidden;
